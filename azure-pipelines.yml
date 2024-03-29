@@ -65,7 +65,7 @@ stages:
 #    - publish: '$(Build.ArtifactStagingDirectory)'
 #      artifact: drop
 
-- stage: 'Build_docker'
+- stage: 'Build'
   displayName: 'Build and push'
   jobs:  
   - job: 'Build'
@@ -86,7 +86,7 @@ stages:
 
 - stage: 'Deploy'
   displayName: 'Deploy the container'
-  dependsOn: Build_docker
+  dependsOn: Build
   jobs:
   - job: 'Deploy'
     displayName: 'Deploy job'
