@@ -5,7 +5,7 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-- stage: 'Build web'
+- stage: 'Build_web'
   displayName: 'Build the web application'
   jobs: 
   - job: 'Build'
@@ -65,7 +65,7 @@ stages:
 #    - publish: '$(Build.ArtifactStagingDirectory)'
 #      artifact: drop
 
-- stage: 'Build docker'
+- stage: 'Build_docker'
   displayName: 'Build and push'
   jobs:  
   - job: 'Build'
@@ -86,7 +86,7 @@ stages:
 
 - stage: 'Deploy'
   displayName: 'Deploy the container'
-  dependsOn: Build
+  dependsOn: Build_docker
   jobs:
   - job: 'Deploy'
     displayName: 'Deploy job'
